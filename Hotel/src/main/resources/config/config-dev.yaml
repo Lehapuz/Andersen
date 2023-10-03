@@ -1,0 +1,20 @@
+database:
+  path: "src/main/resources/json/hotel.json"
+
+apartment:
+  allowApartmentStatusChange: true
+
+# saveOption defines how to save data.
+# Possible options:
+# - MEMORY: save data in memory (i.e, ArrayList, etc.);
+# - DISK: save data on disk;
+# - JDBC: save data in DB via JDBC;
+# - HIBERNATE: save data in DB via Hibernate.
+# By default, it will be saved in memory
+saveOption: HIBERNATE
+
+postgresDatabase:
+  username: "postgres"
+  password: "123"
+  url: "jdbc:postgresql://localhost:5432/db_hotel_Andersen"
+  pool: 30

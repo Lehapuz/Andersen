@@ -1,0 +1,12 @@
+database:
+  path: "src/test/resources/json/testHotel.json"
+
+apartment:
+  allowApartmentStatusChange: true
+
+# saveOption defines how to save data.
+# Possible options:
+# - MEMORY: save data in memory (i.e, ArrayList, etc.);
+# - DISK: save data on disk;
+# By default, it will be saved in memory
+saveOption: DISK

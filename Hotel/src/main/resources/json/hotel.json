@@ -1,0 +1,48 @@
+{
+  "apartmentsList" : [ {
+    "id" : 1,
+    "capacity" : 2,
+    "price" : 4000.0,
+    "status" : "UNAVAILABLE"
+  }, {
+    "id" : 2,
+    "capacity" : 4,
+    "price" : 8000.0,
+    "status" : "AVAILABLE"
+  } ],
+  "clientsList" : [ {
+    "id" : 1,
+    "name" : "Alex",
+    "checkOutDate" : [ 2023, 8, 29, 11, 1, 15, 586616100 ],
+    "checkInDate" : [ 2023, 8, 24, 11, 1, 15, 586616100 ],
+    "status" : "CHECKED_IN",
+    "apartment" : {
+      "id" : 1,
+      "capacity" : 2,
+      "price" : 4000.0,
+      "status" : "UNAVAILABLE"
+    },
+    "perks" : [ ],
+    "stayCost" : 20000.0,
+    "quantityOfPeople" : 2
+  }, {
+    "id" : 2,
+    "name" : "Zina",
+    "checkOutDate" : null,
+    "checkInDate" : null,
+    "status" : "NEW",
+    "apartment" : null,
+    "perks" : [ ],
+    "stayCost" : 0.0,
+    "quantityOfPeople" : 2
+  } ],
+  "perksList" : [ {
+    "id" : 1,
+    "name" : "laundry",
+    "price" : 50.0
+  }, {
+    "id" : 2,
+    "name" : "massage",
+    "price" : 500.0
+  } ]
+}

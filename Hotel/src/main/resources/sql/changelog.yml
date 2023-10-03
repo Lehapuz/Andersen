@@ -1,0 +1,152 @@
+databaseChangeLog:
+  - changeSet:
+      id: init-apartment
+      author: (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: apartment_pkey
+                  name: apartment_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: capacity
+                  type: INTEGER
+              - column:
+                  name: price
+                  type: FLOAT8
+              - column:
+                  constraints:
+                    nullable: false
+                  name: status
+                  type: VARCHAR
+            tableName: apartment
+  - changeSet:
+      id: init-client
+      author: (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: client_pkey
+                  name: client_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR
+              - column:
+                  name: checkin
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: checkout
+                  type: TIMESTAMP WITHOUT TIME ZONE
+              - column:
+                  name: apartment_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: status
+                  type: VARCHAR
+              - column:
+                  name: staycost
+                  type: FLOAT8
+              - column:
+                  name: quantityofpeople
+                  type: INTEGER
+            tableName: client
+  - changeSet:
+      id: init-client-perk
+      author: (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: client_perk_pkey
+                  name: client_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: client_perk_pkey
+                  name: perk_id
+                  type: BIGINT
+            tableName: client_perk
+  - changeSet:
+      id: init-perk
+      author: (generated)
+      changes:
+        - createTable:
+            columns:
+              - column:
+                  autoIncrement: true
+                  constraints:
+                    nullable: false
+                    primaryKey: true
+                    primaryKeyName: perk_pkey
+                  name: perk_id
+                  type: BIGINT
+              - column:
+                  constraints:
+                    nullable: false
+                  name: name
+                  type: VARCHAR
+              - column:
+                  name: price
+                  type: FLOAT8
+            tableName: perk
+  - changeSet:
+      id: init-foreign-keys
+      author: (generated)
+      changes:
+        - addForeignKeyConstraint:
+            baseColumnNames: apartment_id
+            baseTableName: client
+            constraintName: client_apartment_id_fkey
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: apartment_id
+            referencedTableName: apartment
+            validate: true
+
+        - addForeignKeyConstraint:
+            baseColumnNames: client_id
+            baseTableName: client_perk
+            constraintName: client_perk_client_id_fkey
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: client_id
+            referencedTableName: client
+            validate: true
+
+        - addForeignKeyConstraint:
+            baseColumnNames: perk_id
+            baseTableName: client_perk
+            constraintName: client_perk_perk_id_fkey
+            deferrable: false
+            initiallyDeferred: false
+            onDelete: NO ACTION
+            onUpdate: NO ACTION
+            referencedColumnNames: perk_id
+            referencedTableName: perk
+            validate: true
